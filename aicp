@@ -1,0 +1,55 @@
+import math
+
+class Hexagon:
+    def __init__(self, side_length):
+        self.side_length = side_length
+
+    def calculate_area(self):
+        return 1.5 * 1.732 * self.side_length
+
+    def calculate_perimeter(self):
+        return 6 * self.side_length
+
+    def calculate_sum_of_angles(self):
+        return 6 * 120
+
+class Square:
+    def __init__(self, side_length):
+        self.side_length = side_length
+
+    def calculate_area(self):
+        return self.side_length ** 2
+
+    def calculate_perimeter(self):
+        return 4 * self.side_length
+
+def main():
+    cnic = input("Enter your CNIC: ")
+    last_digit = int(cnic[-1])
+
+    hexagon = Hexagon(last_digit)
+    square = Square(last_digit + 1)
+
+    while True:
+        print("\nMenu:")
+        print(" press 1 if you want to find Hexagon")
+        print(" press 2 if you want to find Square")
+        print("Any other input to exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            print("\nHexagon:")
+            print("Area:", hexagon.calculate_area())
+            print("Perimeter:", hexagon.calculate_perimeter())
+            print("Sum of all angles:", hexagon.calculate_sum_of_angles())
+        elif choice == '2':
+            print("\nSquare:")
+            print("Area:", square.calculate_area())
+            print("Perimeter:", square.calculate_perimeter())
+        else:
+            print("Exiting the program.")
+            break
+
+if __name__ == "__main__":
+    main()
